@@ -5,6 +5,7 @@ using OmintakProduction.Models;
 
 namespace OmintakProduction.Controllers
 {
+    
     public class UserController : Controller
     {
         private readonly AppDbContext _context;
@@ -17,6 +18,12 @@ namespace OmintakProduction.Controllers
         public IActionResult Index()
         {
             var users = _context.User.Where(u=> u.isActive==true).ToList();
+
+            return View(users);
+        }
+        public IActionResult GetIndividualUser(int id)
+        {
+            var users = _context.User.Where(u => u.UserId == id).ToList();
 
             return View(users);
         }

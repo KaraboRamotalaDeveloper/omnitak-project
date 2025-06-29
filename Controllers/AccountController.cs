@@ -61,7 +61,7 @@ namespace OmintakProduction.Controllers
                 UserName = username, 
                 Email = email,
                 Password = passwordHash,
-                RoleId = 1,
+                RoleId = 2,
                 CreatedDate = new DateOnly(2025, 06, 27),
                 isActive = true
 

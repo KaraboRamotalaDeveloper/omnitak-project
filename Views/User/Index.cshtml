@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims;
+@using System.Security.Claims;
 @model List<OmintakProduction.Models.User>;
 @*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -10,6 +10,7 @@
 
 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
     <ul class="navbar-nav flex-grow-1">
+
         @if (User.FindFirst(ClaimTypes.Role)?.Value == "SystemAdmin")
         {
             <a type="submit" class="btn btn-info btn-lg shadow-sm" asp-controller="User" asp-action="Index">
@@ -22,7 +23,7 @@
         else
         {
             <a type="submit" class="btn btn-info btn-lg shadow-sm" asp-controller="User" asp-action="GetIndividualUser">
-                <i class="bi bi-box-arrow-in-right me-2"></i> Active Users Account
+                <i class="bi bi-box-arrow-in-right me-2"></i>User Account
             </a>
         }
         

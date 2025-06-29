@@ -1,4 +1,4 @@
-﻿@using System.Security.Claims;
+@using System.Security.Claims;
 
 @model IEnumerable<OmintakProduction.Models.Ticket>;
 @*
@@ -38,7 +38,11 @@
                
                 <td>
                     <a asp-controller="Ticket" asp-action="Update" asp-route-id="@ticket.Id"  class="btn btn-primary">Update</a>
-                    <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@ticket.Id" class="btn btn-danger">Delete</a>
+                    @if (User.FindFirst(ClaimTypes.Role)?.Value == "SystemAdmin")
+                    {
+                        <a asp-controller="Ticket" asp-action="Delete" asp-route-id="@ticket.Id" class="btn btn-danger">Delete</a>
+                    }
+                    
                 </td>
             </tr>
         }

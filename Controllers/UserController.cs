@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using OmintakProduction.Data;
 using OmintakProduction.Models;
@@ -23,10 +23,11 @@ namespace OmintakProduction.Controllers
         }
         public IActionResult GetIndividualUser(int id)
         {
-            var users = _context.User.Where(u => u.UserId == id).ToList();
+            var user = _context.User.Where(u => u.UserId == id).ToList();
 
-            return View(users);
+            return View(user);
         }
+
         public IActionResult GetAllUsers()
         {
             var users = _context.User.ToList();
